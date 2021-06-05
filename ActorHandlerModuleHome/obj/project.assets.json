@@ -98,11 +98,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
       "projectName": "ActorHandlerModuleHome",
-      "projectPath": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
+      "projectPath": "C:\\Users\\User\\Source\\Repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerModuleHome\\obj\\",
+      "outputPath": "C:\\Users\\User\\Source\\Repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

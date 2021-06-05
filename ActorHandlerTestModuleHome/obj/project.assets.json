@@ -118,11 +118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerTestModuleHome\\ActorHandlerTestModuleHome.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerTestModuleHome\\ActorHandlerTestModuleHome.csproj",
       "projectName": "ActorHandlerTestModuleHome",
-      "projectPath": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerTestModuleHome\\ActorHandlerTestModuleHome.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerTestModuleHome\\ActorHandlerTestModuleHome.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerTestModuleHome\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerTestModuleHome\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,8 +139,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {
-              "projectPath": "D:\\git\\OSMLSactorhandlermodule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj"
+            "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj"
             }
           }
         }

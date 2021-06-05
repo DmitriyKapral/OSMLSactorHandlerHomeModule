@@ -11,6 +11,7 @@ namespace ActorHandlerModuleHome
     public class WaitingActivityHome : IActivity
     {
         public int Priority { get; private set; } = 35;
+        private double Workseconds { get; set; }
         public WaitingActivityHome()
         {
         }
@@ -26,6 +27,21 @@ namespace ActorHandlerModuleHome
             Console.WriteLine($"Flags: {state.Hunger}");
             Console.WriteLine($"Flags: {state.Fatigue}");
             Console.WriteLine($"Flags: {state.Mood}");
+            Workseconds += deltaTime;
+            if (Workseconds >= 1)
+            {
+                Workseconds -= 1;
+                if (actor.GetState<SpecState>().Health <= 0.1) actor.GetState<SpecState>().Health = 0;
+
+                if (actor.GetState<SpecState>().Hunger <= 0.1) actor.GetState<SpecState>().Health -= 0.01;
+                else actor.GetState<SpecState>().Hunger -= 1;
+
+                if (actor.GetState<SpecState>().Fatigue <= 0.1) actor.GetState<SpecState>().Health -= 0.01;
+                else actor.GetState<SpecState>().Fatigue -= 0.01;
+
+                if (actor.GetState<SpecState>().Mood <= 0.1) actor.GetState<SpecState>().Health -= 0.001;
+                else actor.GetState<SpecState>().Mood -= 0.001;
+            }
             Console.WriteLine($"Flags1: {state.Hunger}");
             Console.WriteLine($"Flags1: {state.Fatigue}");
             Console.WriteLine($"Flags1: {state.Mood}");
