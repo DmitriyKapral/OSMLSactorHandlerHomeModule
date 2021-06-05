@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\DmitriyKapral\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\DmitriyKapral\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\DmitriyKapral\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
         "projectName": "ActorHandlerModuleHome",
-        "projectPath": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\DmitriyKapral\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\ActorHandlerModuleHome.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\obj\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\DmitriyKapral\\OSMLSactorHandlerHomeModule\\ActorHandlerModuleHome\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

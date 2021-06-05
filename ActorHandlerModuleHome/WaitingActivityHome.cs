@@ -11,65 +11,71 @@ namespace ActorHandlerModuleHome
     public class WaitingActivityHome : IActivity
     {
         public int Priority { get; private set; } = 35;
-        private double Workseconds { get; set; }
+        private double HomeSeconds { get; set; }
         public WaitingActivityHome()
         {
         }
-        public WaitingActivityHome(int priority)
+        public WaitingActivityHome(double second)
         {
-            Priority = priority;
+            HomeSeconds = second;
         }
         public bool Update(Actor actor, double deltaTime)
         {
 
             SpecState state = actor.GetState<SpecState>();
             var zonedClock = SystemClock.Instance.InTzdbSystemDefaultZone();
-            Console.WriteLine($"Flags: {state.Hunger}");
-            Console.WriteLine($"Flags: {state.Fatigue}");
+            Console.WriteLine($"Flags: {state.Satiety}");
+            Console.WriteLine($"Flags: {state.Stamina}");
             Console.WriteLine($"Flags: {state.Mood}");
-            Workseconds += deltaTime;
-            if (Workseconds >= 1)
+            HomeSeconds += deltaTime;
+            if (HomeSeconds >= 1)
             {
-                Workseconds -= 1;
-                if (actor.GetState<SpecState>().Health <= 0.1) actor.GetState<SpecState>().Health = 0;
+                HomeSeconds -= 1;
+                if (state.Health <= 0.01) state.Health = 0;
 
-                if (actor.GetState<SpecState>().Hunger <= 0.1) actor.GetState<SpecState>().Health -= 0.01;
-                else actor.GetState<SpecState>().Hunger -= 1;
+                if (state.Satiety >= 99.99) state.Satiety = 100;
 
-                if (actor.GetState<SpecState>().Fatigue <= 0.1) actor.GetState<SpecState>().Health -= 0.01;
-                else actor.GetState<SpecState>().Fatigue -= 0.01;
+                if (state.Stamina >= 99.95) state.Stamina = 100;
 
-                if (actor.GetState<SpecState>().Mood <= 0.1) actor.GetState<SpecState>().Health -= 0.001;
-                else actor.GetState<SpecState>().Mood -= 0.001;
+                if (state.Mood <= 0) state.Mood = 0;
+
+                if (state.Satiety <= 0.1) state.Health -= 0.01;
+                else state.Satiety += 0.001;
+
+                if (state.Stamina <= 0.1) state.Health -= 0.01;
+                else state.Stamina += 0.01;
+
+                if (state.Mood <= 0.1) state.Health -= 0.001;
+                else state.Mood -= 0.01;
             }
-            Console.WriteLine($"Flags1: {state.Hunger}");
-            Console.WriteLine($"Flags1: {state.Fatigue}");
+            Console.WriteLine($"Flags1: {state.Satiety}");
+            Console.WriteLine($"Flags1: {state.Stamina}");
             Console.WriteLine($"Flags1: {state.Mood}");
             if (zonedClock.GetCurrentTimeOfDay() < new LocalTime(8, 0) && zonedClock.GetCurrentTimeOfDay() > new LocalTime(23, 0))
             {
                 return false;
             }
-            if(state.Fatigue <= 100 && state.Fatigue > 80)
+            if(state.Stamina <= 100 && state.Stamina > 80)
             {
                 Console.WriteLine("fat1");
                 Priority = 3;
             }
-            else if (state.Fatigue <= 80 && state.Fatigue > 60)
+            else if (state.Stamina <= 80 && state.Stamina > 60)
             {
                 Console.WriteLine("fat2");
                 Priority = 23;
             }
-            else if (state.Fatigue <= 60 && state.Fatigue > 40)
+            else if (state.Stamina <= 60 && state.Stamina > 40)
             {
                 Console.WriteLine("fat3");
                 Priority = 43;
             }
-            else if (state.Fatigue <= 40 && state.Fatigue > 20)
+            else if (state.Stamina <= 40 && state.Stamina > 20)
             {
                 Console.WriteLine("fat4");
                 Priority = 63;
             }
-            else if (state.Fatigue <= 20 && state.Fatigue > 5)
+            else if (state.Stamina <= 20 && state.Stamina > 5)
             {
                 Console.WriteLine("fat5");
                 Priority = 83;
@@ -90,7 +96,7 @@ namespace ActorHandlerModuleHome
                 }
             }
 
-            if(state.Hunger <= 5)
+            if(state.Satiety <= 5)
             {
                 if(Priority < 94)
                 {
@@ -98,7 +104,7 @@ namespace ActorHandlerModuleHome
                     return true;
                 }
             }
-            else if (state.Hunger <= 20 && state.Hunger > 5)
+            else if (state.Satiety <= 20 && state.Satiety > 5)
             {
                 if (Priority < 84)
                 {
@@ -106,7 +112,7 @@ namespace ActorHandlerModuleHome
                     return true;
                 }
             }
-            else if (state.Hunger <= 40 && state.Hunger > 20)
+            else if (state.Satiety <= 40 && state.Satiety > 20)
             {
                 if (Priority < 64)
                 {
@@ -114,7 +120,7 @@ namespace ActorHandlerModuleHome
                     return true;
                 }
             }
-            else if (state.Hunger <= 60 && state.Hunger > 40)
+            else if (state.Satiety <= 60 && state.Satiety > 40)
             {
                 if (Priority < 44)
                 {
@@ -122,7 +128,7 @@ namespace ActorHandlerModuleHome
                     return true;
                 }
             }
-            else if (state.Hunger <= 80 && state.Hunger > 60)
+            else if (state.Satiety <= 80 && state.Satiety > 60)
             {
                 if (Priority < 24)
                 {
