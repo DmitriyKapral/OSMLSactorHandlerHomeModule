@@ -31,14 +31,6 @@ namespace ActorHandlerModuleHome
             if (HomeSeconds >= 1)
             {
                 HomeSeconds -= 1;
-                if (state.Health <= 0.01) state.Health = 0;
-
-                if (state.Satiety >= 99.99) state.Satiety = 100;
-
-                if (state.Stamina >= 99.95) state.Stamina = 100;
-
-                if (state.Mood <= 0) state.Mood = 0;
-
                 if (state.Satiety <= 0.1) state.Health -= 0.01;
                 else state.Satiety += 0.001;
 
@@ -47,6 +39,14 @@ namespace ActorHandlerModuleHome
 
                 if (state.Mood <= 0.1) state.Health -= 0.001;
                 else state.Mood -= 0.01;
+
+                if (state.Health <= 0.01) state.Health = 0;
+
+                if (state.Satiety >= 100) state.Satiety = 100;
+
+                if (state.Stamina >= 100) state.Stamina = 100;
+
+                if (state.Mood <= 0.01) state.Mood = 0;
             }
             Console.WriteLine($"Flags1: {state.Satiety}");
             Console.WriteLine($"Flags1: {state.Stamina}");

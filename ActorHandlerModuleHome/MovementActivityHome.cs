@@ -31,7 +31,7 @@ namespace ActorHandlerModuleHome
 
         public bool Update(Actor actor, double deltaTime)
         {
-            
+
             double speed = actor.GetState<SpecState>().Speed;
             SpecState state = actor.GetState<SpecState>();
             // Расстояние, которое может пройти актор с заданной скоростью за прошедшее время
@@ -40,14 +40,6 @@ namespace ActorHandlerModuleHome
             if (HomeSeconds >= 1)
             {
                 HomeSeconds -= 1;
-                if (state.Health <= 0.01) state.Health = 0;
-
-                if (state.Satiety >= 99.99) state.Satiety = 100;
-
-                if (state.Stamina >= 99.95) state.Stamina = 100;
-
-                if (state.Mood <= 0) state.Mood = 0;
-
                 if (state.Satiety <= 0.1) state.Health -= 0.01;
                 else state.Satiety -= 0.001;
 
@@ -56,7 +48,16 @@ namespace ActorHandlerModuleHome
 
                 if (state.Mood <= 0.1) state.Health -= 0.001;
                 else state.Mood -= 0.001;
+
+                if (state.Health <= 0.01) state.Health = 0;
+
+                if (state.Satiety <= 0.001) state.Satiety = 0;
+
+                if (state.Stamina <= 0.001) state.Stamina = 0;
+
+                if (state.Mood <= 0.001) state.Mood = 0;
             }
+            
             if (IsPath)
             {
                 var firstCoordinate = new Coordinate(actor.X, actor.Y);
@@ -66,8 +67,8 @@ namespace ActorHandlerModuleHome
                 Path = PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").Result.Coordinates;
                 Console.WriteLine("33");
                 IsPath = false;
+                
             }
-
             Vector2D direction = new Vector2D(actor.Coordinate, Path[i]);
             // Проверка на перешагивание
             if (direction.Length() <= distance)
@@ -94,14 +95,17 @@ namespace ActorHandlerModuleHome
             }
 
             // Если в процессе шагания мы достигли точки назначения
-            if (actor.X == Path[Path.Length-1].X && actor.Y == Path[Path.Length-1].Y)
+            if (actor.X == Path[Path.Length - 1].X && actor.Y == Path[Path.Length - 1].Y)
             {
-                IsPath = true;
+                
                 actor.Activity = new WaitingActivityHome(HomeSeconds);
                 i = 0;
+                IsPath = true;
                 //return true;
             }
+
             return false;
+                
         }
     }
 }
