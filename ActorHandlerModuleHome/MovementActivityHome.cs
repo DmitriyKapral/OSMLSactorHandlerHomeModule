@@ -95,7 +95,7 @@ namespace ActorHandlerModuleHome
             }
 
             // Если в процессе шагания мы достигли точки назначения
-            if (actor.X == Path[Path.Length - 1].X && actor.Y == Path[Path.Length - 1].Y)
+            if (actor.X == Path[^1].X && actor.Y == Path[^1].Y)
             {
                 
                 actor.Activity = new WaitingActivityHome(HomeSeconds);

@@ -18,11 +18,12 @@ using InitializeActorModule;
 
 namespace ActorHandlerTestModuleHome
 {
-    public class ActorHandlerTestModule : OSMLSModule
+    public class ActorHandlerTestModuleHome : OSMLSModule
     {
         protected override void Initialize()
         {
         }
+        int count = 0;
         public override void Update(long elapsedMilliseconds)
         {
 
@@ -39,11 +40,12 @@ namespace ActorHandlerTestModuleHome
 
                 //Console.WriteLine($"Flags: {isActivity} {goActivity} {timefal}");
 
-                if (!isActivity)
+                if (!isActivity && count!=actors.Count)
                 {
                     // Назначить актору путь до дома
                     actor.Activity = new MovementActivityHome();
                     Console.WriteLine("Said actor go home\n");
+                    count++;
                 }
             }
         }
