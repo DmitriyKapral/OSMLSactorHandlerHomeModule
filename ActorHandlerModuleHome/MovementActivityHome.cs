@@ -24,6 +24,7 @@ namespace ActorHandlerModuleHome
         private bool IsPath = true;
         public int Priority { get; private set; } = 1;
         private double HomeSeconds { get; set; }
+        bool End = true;
         public MovementActivityHome()
         {
         }
@@ -64,10 +65,13 @@ namespace ActorHandlerModuleHome
                 Console.WriteLine("11");
                 var secondCoordinate = new Coordinate(actor.GetState<PlaceState>().Home.X, actor.GetState<PlaceState>().Home.Y);
                 Console.WriteLine("22");
+                if(!PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").IsCompleted && !End)
+                    return false;
+                End = false;
                 Path = PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").Result.Coordinates;
+                End = true;
                 Console.WriteLine("33");
                 IsPath = false;
-                
             }
             Vector2D direction = new Vector2D(actor.Coordinate, Path[i]);
             // Проверка на перешагивание
