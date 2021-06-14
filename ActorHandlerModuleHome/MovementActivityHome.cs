@@ -22,7 +22,7 @@ namespace ActorHandlerModuleHome
         public int i = 0;
 
         private bool IsPath = true;
-        public int Priority { get; private set; } = 100;
+        public int Priority { get; private set; } = 35;
         private double HomeSeconds { get; set; }
         bool End = true;
         public MovementActivityHome()
@@ -62,15 +62,15 @@ namespace ActorHandlerModuleHome
             if (IsPath)
             {
                 var firstCoordinate = new Coordinate(actor.X, actor.Y);
-                Console.WriteLine("11");
+                //Console.WriteLine("11");
                 var secondCoordinate = new Coordinate(actor.GetState<PlaceState>().Home.X, actor.GetState<PlaceState>().Home.Y);
-                Console.WriteLine("22");
+                //Console.WriteLine("22");
                 if(!PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").IsCompleted && !End)
                     return false;
                 End = false;
                 Path = PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").Result.Coordinates;
                 End = true;
-                Console.WriteLine("Ending");
+                //Console.WriteLine("Ending");
                 IsPath = false;
             }
             Vector2D direction = new Vector2D(actor.Coordinate, Path[i]);
