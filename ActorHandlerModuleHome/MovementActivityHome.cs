@@ -22,7 +22,7 @@ namespace ActorHandlerModuleHome
         public int i = 0;
 
         private bool IsPath = true;
-        public int Priority { get; private set; } = 1;
+        public int Priority { get; private set; } = 100;
         private double HomeSeconds { get; set; }
         bool End = true;
         public MovementActivityHome()

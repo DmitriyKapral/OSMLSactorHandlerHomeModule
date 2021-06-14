@@ -65,8 +65,8 @@ namespace ActorHandlerModuleHome
 
                 bool isActivity = actor.Activity != null;
 
-                bool isMovementActivityHome = isActivity ? actor.Activity is MovementActivityHome : false;
-                bool isWaitingActivityHome = isActivity ? actor.Activity is WaitingActivityHome : false;
+                bool isMovementActivityHome = isActivity && actor.Activity is MovementActivityHome;
+                bool isWaitingActivityHome = isActivity && actor.Activity is WaitingActivityHome;
 
 
                 //Console.WriteLine($"Flags: {isActivity} {goActivity} {timefal}");
