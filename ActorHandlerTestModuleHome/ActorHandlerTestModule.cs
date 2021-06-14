@@ -20,6 +20,7 @@ namespace ActorHandlerTestModuleHome
 {
     public class ActorHandlerTestModuleHome : OSMLSModule
     {
+        public int Priority { get; private set; } = 1;
         protected override void Initialize()
         {
         }
@@ -37,10 +38,9 @@ namespace ActorHandlerTestModuleHome
                 bool timefal = isActivity ? actor.Activity is WaitingActivityHome : false;
 
 
-
                 //Console.WriteLine($"Flags: {isActivity} {goActivity} {timefal}");
 
-                if (!isActivity && count!=actors.Count)
+                if (!isActivity && /*count!=actors.Count*/ Priority > actor.Activity.Priority)
                 {
                     // Назначить актору путь до дома
                     actor.Activity = new MovementActivityHome();
