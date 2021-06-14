@@ -25,8 +25,9 @@ namespace ActorHandlerModuleHome
         public int Priority { get; private set; } = 35;
         private double HomeSeconds { get; set; }
         bool End = true;
-        public MovementActivityHome()
+        public MovementActivityHome(int priority)
         {
+            Priority = priority;
         }
 
 

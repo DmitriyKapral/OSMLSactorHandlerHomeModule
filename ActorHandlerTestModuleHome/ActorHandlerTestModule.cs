@@ -43,7 +43,7 @@ namespace ActorHandlerTestModuleHome
                 if (!isActivity && /*count!=actors.Count*/ Priority > actor.Activity.Priority)
                 {
                     // Назначить актору путь до дома
-                    actor.Activity = new MovementActivityHome();
+                    //actor.Activity = new MovementActivityHome();
                     Console.WriteLine("Said actor go home\n");
                     count++;
                 }
