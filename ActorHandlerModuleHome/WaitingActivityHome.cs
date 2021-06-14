@@ -19,11 +19,11 @@ namespace ActorHandlerModuleHome
         {
             HomeSeconds = second;
         }
+        TimeInterval Night = new TimeInterval(new LocalTime(23, 0), new LocalTime(8, 0));
         public bool Update(Actor actor, double deltaTime)
         {
 
             SpecState state = actor.GetState<SpecState>();
-            var zonedClock = SystemClock.Instance.InTzdbSystemDefaultZone();
             Console.WriteLine($"Flags: {state.Satiety}");
             Console.WriteLine($"Flags: {state.Stamina}");
             Console.WriteLine($"Flags: {state.Mood}");
@@ -51,7 +51,7 @@ namespace ActorHandlerModuleHome
             Console.WriteLine($"Flags1: {state.Satiety}");
             Console.WriteLine($"Flags1: {state.Stamina}");
             Console.WriteLine($"Flags1: {state.Mood}");
-            if (zonedClock.GetCurrentTimeOfDay() < new LocalTime(8, 0) && zonedClock.GetCurrentTimeOfDay() > new LocalTime(23, 0))
+            if (Night.Ongoing)
             {
                 return false;
             }

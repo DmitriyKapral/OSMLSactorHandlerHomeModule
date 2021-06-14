@@ -70,7 +70,7 @@ namespace ActorHandlerModuleHome
                 End = false;
                 Path = PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").Result.Coordinates;
                 End = true;
-                Console.WriteLine("Конец постройки пути");
+                Console.WriteLine("Ending");
                 IsPath = false;
             }
             Vector2D direction = new Vector2D(actor.Coordinate, Path[i]);
