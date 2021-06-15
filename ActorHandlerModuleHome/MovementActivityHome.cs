@@ -63,15 +63,13 @@ namespace ActorHandlerModuleHome
             if (IsPath)
             {
                 var firstCoordinate = new Coordinate(actor.X, actor.Y);
-                //Console.WriteLine("11");
                 var secondCoordinate = new Coordinate(actor.GetState<PlaceState>().Home.X, actor.GetState<PlaceState>().Home.Y);
-                //Console.WriteLine("22");
                 if(!PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").IsCompleted && !End)
                     return false;
                 End = false;
                 Path = PathsFinding.GetPath(firstCoordinate, secondCoordinate, "Walking").Result.Coordinates;
                 End = true;
-                //Console.WriteLine("Ending");
+                Console.WriteLine("The path to the house is built");
                 IsPath = false;
             }
             Vector2D direction = new Vector2D(actor.Coordinate, Path[i]);
@@ -102,7 +100,7 @@ namespace ActorHandlerModuleHome
             // Если в процессе шагания мы достигли точки назначения
             if (actor.X == Path[^1].X && actor.Y == Path[^1].Y)
             {
-                
+                Console.WriteLine("WaitingActivity in the house");
                 actor.Activity = new WaitingActivityHome(HomeSeconds);
                 i = 0;
                 IsPath = true;

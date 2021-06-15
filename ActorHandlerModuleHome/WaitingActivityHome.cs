@@ -24,9 +24,6 @@ namespace ActorHandlerModuleHome
         {
 
             SpecState state = actor.GetState<SpecState>();
-            Console.WriteLine($"Flags: {state.Satiety}");
-            Console.WriteLine($"Flags: {state.Stamina}");
-            Console.WriteLine($"Flags: {state.Mood}");
             HomeSeconds += deltaTime;
             if (HomeSeconds >= 1)
             {
@@ -48,50 +45,41 @@ namespace ActorHandlerModuleHome
 
                 if (state.Mood <= 0.01) state.Mood = 0;
             }
-            Console.WriteLine($"Flags1: {state.Satiety}");
-            Console.WriteLine($"Flags1: {state.Stamina}");
-            Console.WriteLine($"Flags1: {state.Mood}");
             if (Night.Ongoing)
             {
+                Console.WriteLine("Waiting at home at night");
                 return false;
             }
             if(state.Stamina <= 100 && state.Stamina > 80)
             {
-                Console.WriteLine("fat1");
                 Priority = 3;
             }
             else if (state.Stamina <= 80 && state.Stamina > 60)
             {
-                Console.WriteLine("fat2");
                 Priority = 23;
             }
             else if (state.Stamina <= 60 && state.Stamina > 40)
             {
-                Console.WriteLine("fat3");
                 Priority = 43;
             }
             else if (state.Stamina <= 40 && state.Stamina > 20)
             {
-                Console.WriteLine("fat4");
                 Priority = 63;
             }
             else if (state.Stamina <= 20 && state.Stamina > 5)
             {
-                Console.WriteLine("fat5");
                 Priority = 83;
             }
             else
             {
-                Console.WriteLine("fat6");
                 Priority = 93;
             }
 
-            if (actor.GetState<JobState>().JobTimes[0].Ongoing)//неизвестно
+            if (actor.GetState<JobState>().JobTimes[0].Ongoing)
             {
                 if(Priority < 75)
                 {
-                    //активность меняется на поход на работу
-                    //actor.Activity = //активность похода на работу
+                    Console.WriteLine("Exit from waitingActivityHome");
                     return true;
                 }
             }
@@ -100,6 +88,7 @@ namespace ActorHandlerModuleHome
             {
                 if(Priority < 94)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -108,6 +97,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 84)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -116,6 +106,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 64)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -124,6 +115,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 44)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -132,6 +124,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 24)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -140,6 +133,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 4)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на поход на еду
                     return true;
                 }
@@ -149,6 +143,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 92)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
@@ -157,6 +152,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 82)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
@@ -165,6 +161,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 62)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
@@ -173,6 +170,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 42)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
@@ -181,6 +179,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 22)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
@@ -189,6 +188,7 @@ namespace ActorHandlerModuleHome
             {
                 if (Priority < 2)
                 {
+                    Console.WriteLine("Exit from waitingActivityHome");
                     //активность меняется на развлечения
                     return true;
                 }
